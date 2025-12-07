@@ -39,7 +39,7 @@ def test_plant_checks() -> None:
     # Test with valid values
     print("\nTesting good values...")
     try:
-        check_plant_health("Rose", 5, 5)
+        check_plant_health("Tomato", 5, 5)
         print("Plant 'tomato' is healthy!")
     except ValueError as e:
         print("Error:", e)
