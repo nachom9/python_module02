@@ -1,13 +1,5 @@
 #!/usr/bin/env python3
 
-"""Garden watering system demo with finally cleanup.
-
-This file keeps your original logic exactly as you wrote it but adds
-educational comments, docstrings and type hints. Lines are wrapped to
-stay within 79 columns where possible.
-"""
-
-
 class WaterError(Exception):
     """Custom exception raised for watering-related problems."""
     pass
