@@ -1,14 +1,5 @@
 #!/usr/bin/env python3
 
-"""Garden Management System
-
-This module implements a simple garden manager demonstrating error
-handling patterns: custom exceptions, raising errors, try/except/finally
-and class & instance methods. Your original logic is preserved exactly;
-this file only adds docstrings, type hints and explanatory comments.
-"""
-
-
 class PlantError(Exception):
     """Base exception for plant-specific problems."""
     pass
