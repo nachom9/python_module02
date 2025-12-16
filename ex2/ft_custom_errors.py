@@ -55,7 +55,7 @@ def garden_check(condition: str) -> None:
         raise GardenError("Your garden is damaged!")
 
 
-if __name__ == "__main__":
+def garden_errors_demo():
     print("=== Custom Garden Errors Demo ===\n")
 
     # Demonstrate PlantError
@@ -85,3 +85,7 @@ if __name__ == "__main__":
     except GardenError as e:
         print("Caught a garden error:", e)
     print("\nAll custom error types work correctly!")
+
+
+if __name__ == "__main__":
+    garden_errors_demo()

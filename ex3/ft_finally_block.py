@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 
-class WaterError(Exception):
-    """Custom exception raised for watering-related problems."""
-    pass
-
-
 def water_plants(plant_list: list) -> None:
     """Open the watering system and water each plant in the list.
 
@@ -19,16 +14,13 @@ def water_plants(plant_list: list) -> None:
 
     # Simulate opening the watering hardware or connection
     print("Opening watering system")
-    for plant in plant_list:
-        # Validate the plant entry; here None means invalid
-        if plant is None:
-            # Raise a descriptive error; message intentionally left
-            # identical to your original string so output doesn't change
-            raise WaterError(
-                f"Cannot watter {plant} - invalid plant!"
-            )
-        # Normal action: watering this plant
-        print(f"Watering {plant}")
+    try:
+        for plant in plant_list:
+            print("Watering " + plant)
+    except TypeError:
+        print(f"Error: cannot water {plant} - invalid plant!")
+    finally:
+        print("Closing watering system (cleanup)")
 
 
 def test_watering_system() -> None:
@@ -45,29 +37,11 @@ def test_watering_system() -> None:
 
     # Normal case: expect no exceptions
     print("Testing normal watering...")
-    try:
-        water_plants(valid_list)
-    except WaterError as e:
-        # If something unexpected happens, show the error message
-        print(e)
-    finally:
-        # Cleanup logic that must always run (close system, free
-        # resources, etc.)
-        print("Closing watering system (cleanup)")
-
+    water_plants(valid_list)
     print("\nTesting with error...")
 
     # Error case: water_plants will raise WaterError when it finds None
-    try:
-        water_plants(invalid_list)
-    except WaterError as e:
-        # Print the error message produced by the raise in
-        # water_plants(). The caller chooses how to handle it.
-        print(e)
-    finally:
-        # This finally always executes, demonstrating guaranteed cleanup
-        print("Closing watering system (cleanup)")
-
+    water_plants(invalid_list)
     print("\nCleanup always happens, even with errors!")
 
 

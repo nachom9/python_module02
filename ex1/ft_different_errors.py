@@ -1,4 +1,4 @@
-#!/bin/usr/env python
+#!/usr/bin/env python
 
 def garden_operations(error_type: str) -> None:
     """Trigger specific errors based on the provided type.
@@ -35,27 +35,26 @@ def test_error_types() -> None:
     print("\nTesting ValueError...")
     try:
         garden_operations("value")
-    except ValueError:
-        print("Caught ValueError: invalid literal for int()")
+    except ValueError as error:
+        print(f"Caught ValueError: {error}")
 
     print("\nTesting ZeroDivisionError...")
     try:
         garden_operations("division")
-    except ZeroDivisionError:
-        print("Caught ZeroDivisionError: division by zero")
+    except ZeroDivisionError as error:
+        print(f"Caught ZeroDivisionError: {error}")
 
     print("\nTesting FileNotFoundError...")
     try:
         garden_operations("file")
-    except FileNotFoundError:
-        print("Caught FileNotFoundError: "
-              "No such file 'missing.txt'")
+    except FileNotFoundError as error:
+        print(f"Caught FileNotFoundError: {error}")
 
     print("\nTesting KeyError...")
     try:
         garden_operations("key")
-    except KeyError:
-        print("Caught KeyError: 'missing_plant'")
+    except KeyError as error:
+        print(f"Caught KeyError: {error}")
 
     print("\nTesting multiple errors together...")
     try:
@@ -65,3 +64,7 @@ def test_error_types() -> None:
         print("Caught an error, but program continues!")
 
     print("\nAll error types tested successfully!")
+
+
+if __name__ == "__main__":
+    test_error_types()
