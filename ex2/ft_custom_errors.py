@@ -58,32 +58,35 @@ def garden_check(condition: str) -> None:
 def garden_errors_demo():
     print("=== Custom Garden Errors Demo ===\n")
 
-    # Demonstrate PlantError
+    """ Demonstrate PlantError, WaterError and catching all garden errors
+    """
     try:
         print("Testing PlantError...")
         plant_check("tomato", "wilting")
     except PlantError as e:
-        print("Caught a garden error:", e)
+        print(f"Caught a garden error: {e}")
     print("")
 
-    # Demonstrate WaterError
     try:
         print("Testing WaterError...")
         water_check(3)
     except WaterError as e:
-        print("Caught a garden error:", e)
+        print(f"Caught a garden error: {e}")
     print("")
 
-    # Demonstrate catching all garden errors via the base class
     print("Testing catching all garden errors...")
     try:
         plant_check("tomato", "wilting")
     except GardenError as e:
-        print("Caught a garden error:", e)
+        print(f"Caught a garden error: {e}")
     try:
         water_check(3)
     except GardenError as e:
-        print("Caught a garden error:", e)
+        print(f"Caught a garden error: {e}")
+    try:
+        garden_check("damaged")
+    except GardenError as e:
+        print(f"Caught a garden error: {e}")
     print("\nAll custom error types work correctly!")
 
 

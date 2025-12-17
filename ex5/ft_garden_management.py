@@ -2,14 +2,12 @@
 
 class GardenError(Exception):
 
-    def __init__(self, message):
-        super().__init__(message)
+    pass
 
 
 class WaterError(GardenError):
 
-    def __init__(self, message):
-        super().__init__("Not enough water in the tank")
+    pass
 
 
 class GardenManager:
@@ -33,10 +31,11 @@ class GardenManager:
 
     def water_plants(self):
 
+        print("Opening watering system")
         try:
             for plant in self.plants:
                 if self.water_tank < 1:
-                    raise WaterError("")
+                    raise WaterError("Not enough water in the tank")
                 self.plants[plant].water_plant()
                 self.water_tank -= 1
         except WaterError as error:
@@ -56,7 +55,7 @@ class GardenManager:
 
         try:
             if self.water_tank < 10:
-                raise WaterError("")
+                raise WaterError("Not enough water in the tank")
         except WaterError as error:
             print(f"Caught GardenError: {error}")
 
@@ -90,8 +89,8 @@ class Plant:
 def main():
 
     print("=== Garden Management System ===\n")
-    tomato = Plant("Tomato", 5, 8)
-    lettuce = Plant("Lettuce", 15, 5)
+    tomato = Plant("Tomato", 4, 8)
+    lettuce = Plant("Lettuce", 14, 5)
     none_plant = Plant(None, 5, 5)
     plants = {'tomato': tomato,
               'lettuce': lettuce,

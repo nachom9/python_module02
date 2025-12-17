@@ -12,7 +12,6 @@ def water_plants(plant_list: list) -> None:
         plant_list (list): A list of plant names (strings) to water.
     """
 
-    # Simulate opening the watering hardware or connection
     print("Opening watering system")
     try:
         for plant in plant_list:
@@ -35,17 +34,14 @@ def test_watering_system() -> None:
     valid_list = ["tomato", "lettuce", "carrots"]
     invalid_list = ["tomato", None, "carrots"]
 
-    # Normal case: expect no exceptions
     print("Testing normal watering...")
     water_plants(valid_list)
     print("\nTesting with error...")
 
-    # Error case: water_plants will raise WaterError when it finds None
     water_plants(invalid_list)
     print("\nCleanup always happens, even with errors!")
 
 
 if __name__ == "__main__":
-    # Program entry point — print header and run the tests
     print("=== Garden Watering System ===\n")
     test_watering_system()

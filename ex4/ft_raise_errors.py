@@ -37,28 +37,24 @@ def test_plant_checks() -> None:
 
     Demonstrates raising and catching ValueError with informative messages.
     """
-    # Test with valid values
     print("\nTesting good values...")
     try:
         check_plant_health("Tomato", 5, 5)
     except ValueError as e:
         print(f"Error: {e}")
 
-    # Test with empty plant name
     print("\nTesting empty plant name...")
     try:
         check_plant_health("", 5, 5)
     except ValueError as e:
         print(f"Error: {e}")
 
-    # Test with invalid water level
     print("\nTesting bad water level...")
     try:
         check_plant_health("Rose", 15, 5)
     except ValueError as e:
         print(f"Error: {e}")
 
-    # Test with invalid sunlight hours
     print("\nTesting bad sunlight hours...")
     try:
         check_plant_health("Rose", 5, 0)
@@ -69,7 +65,5 @@ def test_plant_checks() -> None:
 
 
 if __name__ == "__main__":
-    # Program header
     print("=== Garden Plant Health Checker ===")
-    # Run the test suite
     test_plant_checks()

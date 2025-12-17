@@ -20,7 +20,7 @@ def check_temperature(temp_str: str) -> int | None:
         if temp < 0:
             print(f"Error: {temp}ºC is too cold for plants (min 0ºC)")
             return None
-        if temp > 40:
+        elif temp > 40:
             print(f"Error: {temp}ºC is too hot for plants (max 40ºC)")
             return None
         else:
